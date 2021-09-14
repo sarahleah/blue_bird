@@ -80,18 +80,26 @@ get '/my_posts' do
 end
 
 put '/posts/:id' do
-  redirect '/' unless logged_in?
+  redirect '/login' unless logged_in?
   
   id = params[:id]
   sport = params[:sport] 
   difficulty = params[:difficulty] 
   location = params[:location] 
-  image_url = params[:image_url] 
+  image_url = params[:image_url]
+
   update_post(id, sport, difficulty, location, image_url)
-  
+
   redirect '/'
 end
 
+delete '/posts/:id' do
+  redirect '/login' unless logged_in?
+
+  delete_post(params[:id])
+
+  redirect '/'
+end
 
 
 

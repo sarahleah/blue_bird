@@ -25,7 +25,13 @@ def get_posts_by_user(user_id)
 end
 
 def update_post(id, sport, difficulty, location, image_url)
-    sql = "UPDATE posts SET sport = '#{sport}', difficulty = '#{difficulty}', location = '#{location}', image_url = '#{image_url}' WHERE id = #{id};"
-    run_sql
+    sql = "UPDATE posts SET sport = '#{sport}', difficulty = '#{difficulty}', location = '#{location}', photo = '#{image_url}' WHERE id = #{id};"
+    run_sql(sql)
+    # no return value
+end
+
+def delete_post(id)
+    sql = "DELETE FROM posts WHERE id = #{id};"
+    run_sql(sql)
     # no return value
 end

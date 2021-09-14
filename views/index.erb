@@ -1,5 +1,10 @@
-<h2>Share Your Adventures</h2>
-
+<header class="index-header">
+    <h1 class="bluebird">blueBird</h1>
+    <h2>Share Your Adventures</h2>
+    <% unless logged_in? %>
+        <a href="/login" class="blue-btn">login</a>
+    <% end %>
+</header>
 <% if logged_in? %>
     <form action="/session" method="post">
 
@@ -11,9 +16,6 @@
     <a href="/share">Share New Adventure</a>
 
     <a href="/my_posts">My Adventures</a>
-
-<% else %>
-    <a href="/login">login</a>
 <% end %>
 
 <% posts.each do |post| %>

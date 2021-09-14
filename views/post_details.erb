@@ -5,6 +5,10 @@
 
 <% if logged_in? && current_user["id"] == get_user_by_id(post["user_id"])["id"] %>
     <a href="/posts/<%= post["id"] %>/edit">Edit</a>
+    <form action="/posts/<%= post["id"] %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button>delete</button>
+    </form>
 <% else %>
     <p><%= get_user_by_id(post["user_id"])["user_name"] %></p>
 <% end %>
