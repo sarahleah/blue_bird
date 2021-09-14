@@ -1,1 +1,20 @@
-<h1>blueBird</h1>
+<h2>Share Your Adventures</h2>
+
+<% if logged_in? %>
+    <form action="/session" method="post">
+
+        <input type="hidden" name="_method" value="delete">
+        <button>logout</button>
+
+    </form>
+<% else %>
+    <a href="/login">login</a>
+<% end %>
+
+<% posts.each do |post| %>
+    <p><%= post["sport"] %></p>
+    <p><%= post["difficulty"] %></p>
+    <p><%= post["location"] %></p>
+    <p><%= post["sport"] %></p>
+    <img src="<%= post["photo"] %>" alt="">
+<% end %>
