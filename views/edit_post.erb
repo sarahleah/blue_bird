@@ -1,0 +1,18 @@
+<form action="/posts/<%= post["id"] %>" method="post">
+
+    <input type="hidden" name="_method" value="put">
+
+    <label for="sport">Sport</label>
+    <input type="text" name="sport" value="<%= post["sport"] %>">
+
+    <label for="difficulty">Difficulty</label>
+    <input type="text" name="difficulty" value="<%= post["difficulty"] %>">
+
+    <label for="location">Location</label>
+    <input type="text" name="location" value="<%= post["location"] %>">
+
+    <label for="image_url">Image URL</label>
+    <input type="text" value="<%= post["photo"] %>">
+    
+    <button>Update</button>
+</form>

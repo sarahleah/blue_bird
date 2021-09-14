@@ -1,0 +1,10 @@
+<p><%= post["sport"] %></p>
+<p><%= post["difficulty"] %></p>
+<p><%= post["location"] %></p>
+<img src="<%= post["photo"] %>" alt="">
+
+<% if logged_in? && current_user["id"] == get_user_by_id(post["user_id"])["id"] %>
+    <a href="/posts/<%= post["id"] %>/edit">Edit</a>
+<% else %>
+    <p><%= get_user_by_id(post["user_id"])["user_name"] %></p>
+<% end %>

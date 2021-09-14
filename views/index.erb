@@ -7,14 +7,22 @@
         <button>logout</button>
 
     </form>
+    
+    <a href="/share">Share New Adventure</a>
+
+    <a href="/my_posts">My Adventures</a>
+
 <% else %>
     <a href="/login">login</a>
 <% end %>
 
 <% posts.each do |post| %>
+    <br>
     <p><%= post["sport"] %></p>
     <p><%= post["difficulty"] %></p>
     <p><%= post["location"] %></p>
     <p><%= post["sport"] %></p>
-    <img src="<%= post["photo"] %>" alt="">
+    <a href="/posts/<%= post["id"]%>"><img src="<%= post["photo"] %>" alt=""></a>
+    <p><%= get_user_by_id(post["user_id"])["user_name"] %></p>
+    <br>
 <% end %>

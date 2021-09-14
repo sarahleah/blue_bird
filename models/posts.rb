@@ -23,3 +23,9 @@ def get_posts_by_user(user_id)
     return posts unless posts.count == 0
     return false
 end
+
+def update_post(id, sport, difficulty, location, image_url)
+    sql = "UPDATE posts SET sport = '#{sport}', difficulty = '#{difficulty}', location = '#{location}', image_url = '#{image_url}' WHERE id = #{id};"
+    run_sql
+    # no return value
+end
