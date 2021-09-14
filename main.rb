@@ -23,10 +23,14 @@ get '/login' do
   erb :login
 end
 
-get '/share' do
+get '/new_post' do
   redirect '/login' unless logged_in?
 
   erb :new_post
+end
+
+get '/new_user' do
+  erb :new_user
 end
 
 post '/session' do
@@ -99,6 +103,20 @@ delete '/posts/:id' do
   delete_post(params[:id])
 
   redirect '/'
+end
+
+post '/users' do
+  user_name = params[:user_name] 
+  first_name = params[:first_name] 
+  last_name = params[:last_name]
+  email = params[:email] 
+  profile_img = params[:profile_img] 
+  password = params[:password] 
+  password_digest = BCrypt::Password.create(password) 
+
+  create_user(user_name, first_name, last_name, email, profile_img, password_digest)
+
+  redirect '/login'
 end
 
 
