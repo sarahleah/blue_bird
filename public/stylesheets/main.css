@@ -314,7 +314,7 @@ form {
     background: #ffffff;
     width: 30%;
     place-items: center;
-    margin: 1rem auto;
+    margin: 1rem 0;
     min-width: fit-content;
 }
 
@@ -336,7 +336,7 @@ form {
 
 .post-img {
     padding: 0.5rem 0.5rem 0.15rem;
-    max-height: 30vw;
+    height: 30vw;
 }
 
 .post-txt-div {
@@ -395,7 +395,8 @@ form {
 .details-grid-div {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    max-width: 100vw;
+    max-width: 80vw;
+    max-height: 80vh;
     justify-items: flex-start;
 }
 
@@ -413,7 +414,7 @@ form {
 }
 
 .details-photo {
-    height: 100vh;
+    height: 80vh;
     width: unset;
 }
 

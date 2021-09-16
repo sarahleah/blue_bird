@@ -12,8 +12,8 @@ require_relative 'models/users.rb'
 
 include CloudinaryHelper
 
-also_reload 'models/posts.rb'
-also_reload 'models/users.rb'
+also_reload 'models/posts.rb' if development?
+also_reload 'models/users.rb' if development?
 
 enable :sessions
 
