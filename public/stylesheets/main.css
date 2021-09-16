@@ -576,3 +576,17 @@ footer {
 }
 
 /* ~~~~~~~~~~ media quieries ~~~~~~~~~ */
+@media screen and (max-width: 600px) {
+    /* phone siiiiiiize bayyybbeeee */
+    html {
+        font-size: 12px;
+    }
+
+    .actions-div {
+        flex-direction: column;
+    }
+    .adventures-h3 {
+        text-align: center;
+        margin: 0.25rem 0;
+    }
+}
