@@ -1,0 +1,17 @@
+<div class="form-background-color">
+    <div class="form-container edit-prof-pic-form">
+        <h5 class="form-title">Change Profile Picture</h5>
+
+        <form action="/users/<%= current_user["id"] %>/profile_img/edit" method="post" enctype="multipart/form-data">
+
+            <input type="hidden" name="_method" value="put">
+
+            <div class="label-input">
+                <label for="profile_img">New profile image: </label>
+                <input type="file" value="<%= current_user["profile_img"] %>" name="profile_img">
+            </div>
+
+            <button class="submit-btn">Change profile picture</button>
+        </form>
+    </div>
+</div>

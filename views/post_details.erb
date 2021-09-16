@@ -1,14 +1,59 @@
-<p><%= post["sport"] %></p>
-<p><%= post["difficulty"] %></p>
-<p><%= post["location"] %></p>
-<img src="<%= post["photo"] %>" alt="">
+<div class="details-grid-div">
 
-<% if logged_in? && current_user["id"] == get_user_by_id(post["user_id"])["id"] %>
-    <a href="/posts/<%= post["id"] %>/edit">Edit</a>
-    <form action="/posts/<%= post["id"] %>" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <button>delete</button>
-    </form>
-<% else %>
-    <p><%= get_user_by_id(post["user_id"])["user_name"] %></p>
-<% end %>
+    <img src="<%= post["photo"] %>" alt="" class="details-photo">
+    <div class="right-details">
+        <div class="details-card">
+            <div class="details-txt">
+                <p class="details-p">
+                    <span class="detail-label">
+                    Sport: 
+                    </span>
+                    <%= post["sport"] %>
+                </p>
+                <p class="details-p">
+                    <span class="detail-label">
+                    Difficulty: 
+                    </span>
+                    <%= post["difficulty"] %>
+                </p>
+                <p class="details-p">
+                    <span class="detail-label">
+                    Location: 
+                    </span>
+                    <%= post["location"] %>
+                </p>
+                <p class="details-p">
+                    <span class="detail-label">
+                    User name: 
+                    </span>
+                    <% user = get_user_by_id(post["user_id"]) %>
+                    <%= user["first_name"].capitalize %>
+                    <%= user["last_name"].capitalize %>
+                </p>
+            </div>
+
+                <img src="<%= user["profile_img"] %>" alt="" class="profile-icon details">
+
+    </div>
+            <% if logged_in? && current_user["id"] == get_user_by_id(post["user_id"])["id"] %>
+
+                <div class="details-actions">
+                    <div class="blue-btn-div edit-post-btn">
+                        <a href="/posts/<%= post["id"] %>/edit" class="blue-btn upper">Edit</a>
+                    </div>
+
+                    <form action="/posts/<%= post["id"] %>" method="post" >
+
+                        <input type="hidden" name="_method" value="delete" class="hid-inp">
+
+                        <div class="blue-btn-div delete-post-div">
+                            <button class="blue-btn delete-post-btn">delete</button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            <% end %>
+    </div>
+</div>

@@ -28,3 +28,27 @@ def get_user_by_id(id)
         return false
     end
 end
+
+def change_profile_picture(id, profile_img)
+    sql = "UPDATE users SET profile_img = '#{profile_img}' WHERE id = #{id};"
+    run_sql(sql)
+    # no return value
+end
+
+def change_password(id, password_digest)
+    sql = "UPDATE users SET password_digest = '#{password_digest}' WHERE id = #{id};"
+    run_sql(sql)
+    # no return value
+end
+
+def email_in_use?(email)
+    sql = "SELECT * FROM USERS WHERE email = '#{email}'"
+    result = run_sql(sql)
+    result.count > 0 ? true : false
+end
+
+def user_name_in_use?(user_name)
+    sql = "SELECT * FROM USERS WHERE user_name = '#{user_name}'"
+    result = run_sql(sql)
+    result.count > 0 ? true : false
+end

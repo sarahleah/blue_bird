@@ -1,12 +1,21 @@
-<%# creates a new session then redirects to home %>
-<form action="/session" method="post">
+<div class="form-background-color">
+    <div class="form-container login-form">
+        <h5 class="form-title">Login</h5>
+        <%# creates a new session then redirects to home %>
+        <form action="/session" method="post">
 
-    <label for="email">email</label>
-    <input type="email" name="email">
+            <div class="label-input">
+                <label for="email">Email:</label>
+                <input type="email" name="email" placeholder="Type your email">
+            </div>
 
-    <label for="password">password</label>
-    <input type="password" name="password">
+            <div class="label-input">
+                <label for="password">Password:</label>
+                <input type="password" name="password" placeholder="Type your password">
+            </div>
 
-    <button>login</button>
-    
-</form>
+            <button class="submit-btn">login</button>
+            
+        </form>
+    </div>
+</div>

@@ -5,11 +5,15 @@
             <form action="/session" method="post" class="logout-frm">
 
                 <input type="hidden" name="_method" value="delete">
-                <button class="logout-btn">logout</button>
+                <div class="blue-btn-div logout-btn-div">
+                    <button class="blue-btn logout-btn">logout</button>
+                </div>
 
             </form>
         <% else %>
-            <a href="/login" class="login">login</a>
+            <div class="blue-btn-div login-btn-div">
+                <a href="/login" class="login-btn blue-btn">login</a>
+            </div>
         <% end %>
     </div>
     <h2>
@@ -34,7 +38,7 @@
 <% end %>
 
 <div class="post-cards">
-    <% posts.each do |post| %>
+    <% posts.to_a.reverse.each do |post| %>
         <div class="post-card-padding">
             <div class="post-card">
                 <p class="sport-p"><%= post["sport"] %></p>
@@ -45,7 +49,12 @@
                         <p class="loc-p"><%= post["location"] %></p>
                     </div>
                     <div class="user-info">
-                        <img src="<%= get_user_by_id(post["user_id"])["profile_img"] %>" alt="" class="profile-icon">
+
+                        <% user = get_user_by_id(post["user_id"]) %>
+
+                        <a href="/user_posts/<%= user["id"] %>">
+                            <img src="<%= user["profile_img"] %>" alt="" class="profile-icon">
+                        </a>
                     </div>
                 </div>
             </div>

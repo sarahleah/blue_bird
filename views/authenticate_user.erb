@@ -1,8 +1,15 @@
-<form action="/users/:id/password/edit/authenticated">
+<div class="form-background-color">
+    <div class="form-container authenticate-user-form">
+        <h5 class="form-title">Current Password</h5>
+        <form action="/users/:id/password/edit/authenticated">
 
-    <label for="password">Enter current password:</label>
-    <input type="password" name="password">
+            <div class="label-input">
+                <label for="password">Enter current password:</label>
+                <input type="password" name="password">
+            </div>
 
-    <button>Submit</button>
+            <button class="submit-btn">Submit</button>
 
-</form>
+        </form>
+    </div>
+</div>

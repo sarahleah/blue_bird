@@ -1,16 +1,30 @@
-<form action="/posts" method="post">
-    <label for="sport">Sport</label>
-    <input type="text" name="sport">
 
-    <label for="difficulty">Difficulty</label>
-    <input type="text" name="difficulty">
+<div class="form-background-color">
+    <div class="form-container new-post-form">
+        <h5 class="form-title">New Post</h5>
+        <form action="/posts" method="post" enctype="multipart/form-data">
+            <div class="label-input">
+                <label for="sport">Sport:</label>
+                <input type="text" name="sport">
+            </div>
 
-    <label for="location">Location</label>
-    <input type="text" name="location">
+            <div class="label-input">
+                <label for="difficulty">Difficulty:</label>
+                <input type="text" name="difficulty">
+            </div>
 
-    <label for="image_url">Image URL</label>
-    <input type="text" name="image_url">
+            <div class="label-input">
+                <label for="location">Location:</label>
+                <input type="text" name="location">
+            </div>
 
-    <button>Post</button>
+            <div class="label-input">
+                <label for="image_url">Image URL:</label>
+                <input type="file" name="image_url">
+            </div>
 
-</form>
+            <button class="submit-btn new-post-submit-btn">Post</button>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="my-posts-body">
+    <div class="my-posts-left">
+        <h2 class="my-adventures-txt">My Adventures</h5>
+        <% if posts == false %>
+            <div class="blue-btn-div my-post-btn-div">
+                <a href="/new_post" class="blue-btn my-post-btn">Post first adventure</a>
+            </div>
+        <% elsif current_user["id"] == posts[0]["user_id"] %>
+            <div class="my-posts-btns">
+                <div class="blue-btn-div my-post-btn-div">
+                    <a href="/new_post" class="blue-btn my-post-btn">Post new adventure</a>
+                </div>
+                <div class="blue-btn-div my-post-btn-div">
+                    <a href="/users/<%= current_user["id"] %>/profile_img/edit" class="blue-btn my-post-btn">Change profile picture</a>
+                </div>
+                <div class="blue-btn-div my-post-btn-div">
+                    <a href="/users/<%= current_user["id"] %>/password/edit" class="blue-btn my-post-btn">Change password</a>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div class="my-posts-right">
+        <% if posts %>
+            <div class="my-posts-user">
+                <% user = get_user_by_id(posts[0]["user_id"]) %>
+                <div class="my-posts-user-txt">
+                    <h5 class="my-posts-name">
+                    <%= user["first_name"] %>
+                    <%= user["last_name"] %>
+                    </h5>
+                    <p><%= user["email"] %></p>
+                    <p>Number of posts: <%= posts.count %></p>
+                </div>
+                <img src="<%= user["profile_img"]%>" alt="" class="profile-icon">
+            </div>
+
+            <div class="post-cards my-post-cards">
+                <% posts.to_a.reverse.each do |post| %>
+                    <div class="post-card-padding my-post-card-padding">
+                        <div class="post-card my-post-card">
+                            <p class="sport-p"><%= post["sport"] %></p>
+                            <p class="diff-p"><%= post["difficulty"] %></p>
+                            <p class="loc-p"><%= post["location"] %></p>
+                            <a href="/posts/<%= post["id"] %>"><img src="<%= post["photo"]%>" alt="" class="post-img my-post-img"></a>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        <% else %>
+            <div class="no-posts-grid-container">
+                <h3>There are no posts to show!</h3>
+            </div>
+        <% end %>
+    </div>
+</div>

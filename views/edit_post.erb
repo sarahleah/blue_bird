@@ -1,18 +1,31 @@
-<form action="/posts/<%= post["id"] %>" method="post">
+<div class="form-background-color">
+    <div class="form-container edit-post-form">
+        <h5 class="form-title">Edit Post</h5>
+        <form action="/posts/<%= post["id"] %>" method="post" enctype="multipart/form-data">
 
-    <input type="hidden" name="_method" value="put">
+            <input type="hidden" name="_method" value="put">
 
-    <label for="sport">Sport</label>
-    <input type="text" name="sport" value="<%= post["sport"] %>">
+            <div class="label-input">
+                <label for="sport">Sport</label>
+                <input type="text" name="sport" value="<%= post["sport"] %>">
+            </div>
 
-    <label for="difficulty">Difficulty</label>
-    <input type="text" name="difficulty" value="<%= post["difficulty"] %>">
+            <div class="label-input">
+                <label for="difficulty">Difficulty</label>
+                <input type="text" name="difficulty" value="<%= post["difficulty"] %>">
+            </div>
 
-    <label for="location">Location</label>
-    <input type="text" name="location" value="<%= post["location"] %>">
+            <div class="label-input">
+                <label for="location">Location</label>
+                <input type="text" name="location" value="<%= post["location"] %>">
+            </div>
 
-    <label for="image_url">Image URL</label>
-    <input type="text" name="image_url" value="<%= post["photo"] %>">
+            <div class="label-input">
+                <label for="image_url">Upload image</label>
+                <input type="file" name="image_url" value="<%= post["photo"] %>">
+            </div>
 
-    <button>Update</button>
-</form>
+            <button class="submit-btn">Update</button>
+        </form>
+    </div>
+</div>

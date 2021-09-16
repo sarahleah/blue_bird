@@ -1,18 +1,41 @@
-<form action="/users" method="post">
+<div class="form-background-color">
+    <div class="form-container new-user-form">
+        <h5 class="form-title">Sign Up</h5>
+        <form action="/users" method="post" enctype="multipart/form-data">
 
-    <label for="user_name">user_name</label>
-    <input type="text" name="user_name">
-    <label for="first_name">first_name</label>
-    <input type="text" name="first_name">
-    <label for="last_name">last_name</label>
-    <input type="text" name="last_name">
-    <label for="email">email</label>
-    <input type="text" name="email">
-    <label for="profile_img">profile_img</label>
-    <input type="text" name="profile_img">
-    <label for="password">password</label>
-    <input type="password" name="password">
+        <div class="label-input">
+            <label for="user_name">User name: </label>
+            <input type="text" name="user_name">
+        </div>
 
-    <button>Get Started</button>
+        <div class="label-input">
+            <label for="first_name">First name: </label>
+            <input type="text" name="first_name">
+        </div>
 
-</form>
+        <div class="label-input">
+            <label for="last_name">Last name:</label>
+            <input type="text" name="last_name">
+        </div>
+
+        <div class="label-input">
+            <label for="email">Email:</label>
+            <input type="text" name="email">
+        </div>
+
+        <div class="label-input">
+            <label for="profile_img">Profile photo:</label>
+            <input type="file" name="profile_img" id="file-upload">
+        </div>
+
+        <div class="label-input">
+            <label for="password">Password:</label>
+            <input type="password" name="password">
+        </div>
+
+            <button class="submit-btn">Get Started</button>
+
+        </form>
+
+    </div>
+</div>
