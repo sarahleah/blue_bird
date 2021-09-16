@@ -589,4 +589,8 @@ footer {
         text-align: center;
         margin: 0.25rem 0;
     }
+
+    .my-post-img {
+        height: 80vh;
+    }
 }
