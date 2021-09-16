@@ -53,7 +53,7 @@
                         <% user = get_user_by_id(post["user_id"]) %>
 
                         <a href="/user_posts/<%= user["id"] %>">
-                            <%= cl_image_tag("#{user["public_id"]}#{user["format"]}", :width => 200, :height => 200, :crop => :fill, :class => "profile-icon") %>
+                            <%= cl_image_tag("#{user["public_id"]}#{user["format"]}", :width => 200, :height => 200, :crop => :fill, :class => "profile-icon", :cloud_name => "dy4m2fyld") %>
                         </a>
                     </div>
                 </div>
