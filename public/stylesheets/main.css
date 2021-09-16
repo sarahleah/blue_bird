@@ -584,13 +584,55 @@ footer {
 
     .actions-div {
         flex-direction: column;
+        margin: 0 1rem;
     }
     .adventures-h3 {
         text-align: center;
         margin: 0.25rem 0;
     }
 
-    .post-img {
+    .post-img, .my-post-img {
         max-height: 80vh;
+        min-height: 99vw;
+    }
+
+    .my-post-img {
+        max-width: 99vw;
+    }
+
+    .my-posts-body {
+        grid-template-columns: auto;
+        grid-template-rows: 50vh 2fr;
+    }
+
+    .my-posts-left {
+        height: fit-content;
+        background-position: top;
+    }
+
+    .my-post-card-padding {
+        width: 99%;
+    }
+
+    .form-container {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .details-body {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .details-grid-div {
+        width: 100vw;
+        height: 100vh;
+        grid-template-columns: auto;
+        grid-template-rows: 50vh 1fr;
+    }
+
+    .details-photo {
+        height: unset;
+        width: 100%;
     }
 }
