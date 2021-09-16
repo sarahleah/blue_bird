@@ -42,7 +42,7 @@
         <div class="post-card-padding">
             <div class="post-card">
                 <p class="sport-p"><%= post["sport"] %></p>
-                <a href="/posts/<%= post["id"]%>"><%= cl_image_tag("#{post["public_id"]}#{post["format"]}", :width => 400, :height => 400, :crop => :fill, :class => "post-img") %></a>
+                <a href="/posts/<%= post["id"]%>"><%= cl_image_tag("#{post["public_id"]}#{post["format"]}", :width => 400, :height => 400, :crop => :fill, :class => "post-img", :cloud_name => "dy4m2fyld") %></a>
                 <div class="post-txt-div">
                     <div class="post-info">
                         <p class="diff-p"><%= post["difficulty"] %></p>

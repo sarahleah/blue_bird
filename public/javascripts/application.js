@@ -6,10 +6,12 @@ postCards.forEach(card => card.addEventListener('mouseenter', handleHover))
 postCards.forEach(card => card.addEventListener('mouseleave', handleExit))
 
 function handleHover(event) {
+    let postCard = event.target
     changeDiv(postCard, "darkslategrey", 'black')
 }
 
 function handleExit(event) {
+    let postCard = event.target
     changeDiv(postCard, "lightgrey", '#b2b0b0')
 }
 

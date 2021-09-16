@@ -392,12 +392,21 @@ form {
 
 /* post_details */
 
+.details-body {
+    display: grid;
+    height: 100vh;
+    place-items: center;
+    background-color: #16afcc;
+}
+
 .details-grid-div {
+    background-color: white;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     max-width: 80vw;
     max-height: 80vh;
     justify-items: flex-start;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
 }
 
 .right-details {
@@ -566,3 +575,4 @@ footer {
     color: #16afcc;
 }
 
+/* ~~~~~~~~~~ media quieries ~~~~~~~~~ */
