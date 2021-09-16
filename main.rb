@@ -1,11 +1,16 @@
+require "active_support"
+require "action_view"
+
 require 'sinatra'
-require 'sinatra/reloader'
+require 'sinatra/reloader' if development?
 require 'bcrypt'
 require 'cloudinary'
 
 require_relative 'library/utils.rb'
 require_relative 'models/posts.rb'
 require_relative 'models/users.rb'
+
+include CloudinaryHelper
 
 also_reload 'models/posts.rb'
 also_reload 'models/users.rb'
@@ -80,9 +85,13 @@ post '/posts' do
   user_id = session[:user_id]
 
   file = params[:image_url][:tempfile]
-  image_url = Cloudinary::Uploader.upload(file, options)["url"]
+  file_details = Cloudinary::Uploader.upload(file, options)
 
-  create_post(sport, difficulty, location, image_url, user_id)
+  image_url = file_details["url"]
+  public_id = file_details["public_id"]
+  extension = '.' + file_details["format"]
+
+  create_post(sport, difficulty, location, image_url, user_id, public_id, extension)
 
   redirect '/'
 end
@@ -102,9 +111,13 @@ put '/posts/:id' do
   location = params[:location] 
 
   file = params[:image_url][:tempfile]
-  image_url = Cloudinary::Uploader.upload(file, options)["url"]
+  file_details = Cloudinary::Uploader.upload(file, options)
 
-  update_post(id, sport, difficulty, location, image_url)
+  image_url = file_details["url"]
+  public_id = file_details["public_id"]
+  extension = '.' + file_details["format"]
+
+  update_post(id, sport, difficulty, location, image_url, public_id, extension)
 
   redirect '/'
 end
@@ -128,14 +141,17 @@ post '/users' do
 
 
   file = params[:profile_img][:tempfile]
+  file_details = Cloudinary::Uploader.upload(file, options)
 
-  profile_img = Cloudinary::Uploader.upload(file, options)["url"]
+  image_url = file_details["url"]
+  public_id = file_details["public_id"]
+  extension = '.' + file_details["format"]
 
   password = params[:password] 
   password_digest = BCrypt::Password.create(password)
 
   unless (email_invalid || user_name_invalid)
-    create_user(user_name, first_name, last_name, email, profile_img, password_digest)
+    create_user(user_name, first_name, last_name, email, image_url, password_digest, public_id, extension)
     user = get_user_by_email(email)
     session[:user_id] = user["id"]
     redirect '/'
@@ -155,8 +171,11 @@ put '/users/:id/profile_img/edit' do
   
   id = params[:id]
   file = params[:profile_img][:tempfile]
+  file_details = Cloudinary::Uploader.upload(file, options)
 
-  profile_img = Cloudinary::Uploader.upload(file, options)["url"]
+  image_url = file_details["url"]
+  public_id = file_details["public_id"]
+  extension = '.' + file_details["format"]
 
   change_profile_picture(id, profile_img)
 

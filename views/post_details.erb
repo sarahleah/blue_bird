@@ -32,7 +32,7 @@
                 </p>
             </div>
 
-                <img src="<%= user["profile_img"] %>" alt="" class="profile-icon details">
+                <a href="/user_posts/<%= user["id"] %>"><%= cl_image_tag("#{user["public_id"]}#{user["format"]}", :width => 400, :height => 400, :crop => :fill, :class => "profile-icon details") %></a>
 
     </div>
             <% if logged_in? && current_user["id"] == get_user_by_id(post["user_id"])["id"] %>

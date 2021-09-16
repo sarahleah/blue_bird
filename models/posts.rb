@@ -3,8 +3,8 @@ def get_all_posts
     results = run_sql(sql)
 end
 
-def create_post(sport, difficulty, location, image_url, user_id)
-    sql = "INSERT INTO posts (sport, difficulty, location, photo, user_id) VALUES ('#{sport}', '#{difficulty}', '#{location}', '#{image_url}',#{user_id});"
+def create_post(sport, difficulty, location, image_url, user_id, public_id, extension)
+    sql = "INSERT INTO posts (sport, difficulty, location, photo, user_id, public_id, format) VALUES ('#{sport}', '#{difficulty}', '#{location}', '#{image_url}',#{user_id}, '#{public_id}', '#{extension}');"
 
     # returns nothing
     run_sql(sql)
@@ -24,8 +24,8 @@ def get_posts_by_user(user_id)
     return false
 end
 
-def update_post(id, sport, difficulty, location, image_url)
-    sql = "UPDATE posts SET sport = '#{sport}', difficulty = '#{difficulty}', location = '#{location}', photo = '#{image_url}' WHERE id = #{id};"
+def update_post(id, sport, difficulty, location, image_url, public_id, extension)
+    sql = "UPDATE posts SET sport = '#{sport}', difficulty = '#{difficulty}', location = '#{location}', photo = '#{image_url}', public_id = '#{public_id}', format = '#{extension}' WHERE id = #{id};"
     run_sql(sql)
     # no return value
 end

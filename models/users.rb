@@ -1,7 +1,7 @@
 require_relative '../library/utils.rb'
 
-def create_user(user_name, first_name, last_name, email, profile_img, password_digest)
-    sql = "INSERT INTO users (user_name, first_name, last_name, email, profile_img, password_digest) VALUES ('#{user_name}', '#{first_name}', '#{last_name}', '#{email}', '#{profile_img}','#{password_digest}');"
+def create_user(user_name, first_name, last_name, email, profile_img, password_digest, public_id, format)
+    sql = "INSERT INTO users (user_name, first_name, last_name, email, profile_img, password_digest, public_id, format) VALUES ('#{user_name}', '#{first_name}', '#{last_name}', '#{email}', '#{profile_img}','#{password_digest}', '#{public_id}', '#{format}');"
     run_sql(sql)
 end
 
@@ -29,8 +29,8 @@ def get_user_by_id(id)
     end
 end
 
-def change_profile_picture(id, profile_img)
-    sql = "UPDATE users SET profile_img = '#{profile_img}' WHERE id = #{id};"
+def change_profile_picture(id, profile_img, public_id, format)
+    sql = "UPDATE users SET profile_img = '#{profile_img}', public_id = '#{public_id}', format = '#{format}' WHERE id = #{id};"
     run_sql(sql)
     # no return value
 end

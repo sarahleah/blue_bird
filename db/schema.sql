@@ -20,3 +20,11 @@ CREATE TABLE users (
     profile_img TEXT,
     password_digest TEXT
 );
+
+ALTER TABLE posts 
+ADD public_id TEXT,
+ADD format TEXT;
+
+ALTER TABLE users
+ADD public_id TEXT, 
+ADD format TEXT;

@@ -1,7 +1,7 @@
 require 'pg'
 
 def run_sql(sql)
-    db = PG.connect(dbname: 'bluebird')
+    db = PG.connect(ENV['DATABASE_URL'] || {dbname: 'bluebird'})
 
     results = db.exec(sql)
 

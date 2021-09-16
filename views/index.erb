@@ -42,7 +42,7 @@
         <div class="post-card-padding">
             <div class="post-card">
                 <p class="sport-p"><%= post["sport"] %></p>
-                <a href="/posts/<%= post["id"]%>"><img src="<%= post["photo"] %>" alt="" class="post-img"></a>
+                <a href="/posts/<%= post["id"]%>"><%= cl_image_tag("#{post["public_id"]}#{post["format"]}", :width => 400, :height => 400, :crop => :fill, :class => "post-img") %></a>
                 <div class="post-txt-div">
                     <div class="post-info">
                         <p class="diff-p"><%= post["difficulty"] %></p>
@@ -53,7 +53,7 @@
                         <% user = get_user_by_id(post["user_id"]) %>
 
                         <a href="/user_posts/<%= user["id"] %>">
-                            <img src="<%= user["profile_img"] %>" alt="" class="profile-icon">
+                            <%= cl_image_tag("#{user["public_id"]}#{user["format"]}", :width => 200, :height => 200, :crop => :fill, :class => "profile-icon") %>
                         </a>
                     </div>
                 </div>

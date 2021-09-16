@@ -5,7 +5,7 @@
             <div class="blue-btn-div my-post-btn-div">
                 <a href="/new_post" class="blue-btn my-post-btn">Post first adventure</a>
             </div>
-        <% elsif current_user["id"] == posts[0]["user_id"] %>
+        <% elsif logged_in? && current_user["id"] == posts[0]["user_id"] %>
             <div class="my-posts-btns">
                 <div class="blue-btn-div my-post-btn-div">
                     <a href="/new_post" class="blue-btn my-post-btn">Post new adventure</a>
@@ -31,7 +31,7 @@
                     <p><%= user["email"] %></p>
                     <p>Number of posts: <%= posts.count %></p>
                 </div>
-                <img src="<%= user["profile_img"]%>" alt="" class="profile-icon">
+                <%= cl_image_tag("#{user["public_id"]}#{user["format"]}", :width => 200, :height => 200, :crop => :fill, :class => "profile-icon") %>
             </div>
 
             <div class="post-cards my-post-cards">
@@ -41,7 +41,7 @@
                             <p class="sport-p"><%= post["sport"] %></p>
                             <p class="diff-p"><%= post["difficulty"] %></p>
                             <p class="loc-p"><%= post["location"] %></p>
-                            <a href="/posts/<%= post["id"] %>"><img src="<%= post["photo"]%>" alt="" class="post-img my-post-img"></a>
+                            <a href="/posts/<%= post["id"] %>"><%= cl_image_tag("#{post["public_id"]}#{post["format"]}", :width => 400, :height => 400, :crop => :fill, :class => "post-img my-post-img") %></a>
                         </div>
                     </div>
                 <% end %>
