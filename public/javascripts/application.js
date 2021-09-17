@@ -1,9 +1,16 @@
 postCards = document.querySelectorAll('.post-card')
-button = document.querySelector('.submit-btn')
 
 postCards.forEach(card => card.addEventListener('mouseenter', handleHover))
 
 postCards.forEach(card => card.addEventListener('mouseleave', handleExit))
+
+submitBtn = document.querySelector('.submit-btn')
+
+if (submitBtn) {
+    submitBtn.type = "reset"
+
+    submitBtn.addEventListener('mousedown', checkForEmpties)
+}
 
 function handleHover(event) {
     let postCard = event.target
@@ -40,4 +47,16 @@ function changeDiv(target, borderColor, fontColor) {
     
     postCard.style.border = border
     sportP.style.color = fontColor
+}
+
+function checkForEmpties() {
+    let inputsNodeList = document.querySelectorAll("input")
+    let inputsArr = Array.from(inputsNodeList)
+    inputsArr.forEach(input => console.log(input.value))
+    if (inputsArr.every(input => input.value)) {
+        submitBtn.type = "submit"
+    } else {
+        submitBtn.textContent = "Please fill in form"
+        submitBtn.type = "reset"
+    }
 }
