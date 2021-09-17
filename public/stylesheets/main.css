@@ -237,8 +237,9 @@ form {
     background-position: 45% 40%;
 }
 
-.sign-up-div {
+.sign-up-div.blue-btn-div {
     align-self: flex-start;
+    width: 25%;
 }
 
 .blue-btn-div {
@@ -592,6 +593,14 @@ footer {
         margin: 0.25rem 0;
     }
 
+    .index-actions {
+        margin-top: 1rem;
+    }
+
+    .post-cards {
+        margin-top: 0;
+    }
+
     .post-img, .my-post-img {
         max-height: 80vh;
         min-height: 99vw;
@@ -632,6 +641,7 @@ footer {
         height: 100%;
         grid-template-columns: auto;
         grid-template-rows: 50vh 1fr;
+        align-items: end;
     }
 
     .details-photo {
@@ -641,5 +651,14 @@ footer {
 
     .details-card {
         background-color: #ffffff;
+        width: 100vw;
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 600px) {
+    .details-card {
+        grid-template-columns: auto;
+        grid-template-rows: 1fr 1fr;
     }
 }
