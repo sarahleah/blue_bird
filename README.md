@@ -27,6 +27,8 @@ Approach:
 
 I started this project off by drawing a set of wireframes diagramming the connections to other pages and the databases. Using that, I started building out the core functionality by making my utility and database functions. Once those were tested, I used my own experience of using the website to build out features. When the base product was functioning as I wanted, I began styling it, I added JS for effects and forms, and added Cloudinary integration.
 
+Here's a link to the initial wireframes I did: https://drive.google.com/file/d/1hUVexC3BV_F0zr68QicOTCBN5T2trE2T/view?usp=sharing
+
 Features: 
 ---------
 
